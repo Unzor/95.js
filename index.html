@@ -1,0 +1,38 @@
+ <!DOCTYPE HTML>
+ <html>
+   <head>
+   <style>
+    #demo{
+    transition: 2s;
+    }
+    </style>
+   <script src="ninetyfive.js"></script>
+   <script>
+    function loading(){
+      var s=document.getElementById("status");
+      s.innerHTML="Loading...";
+      setTimeout(function(){s.innerHTML="Loaded!"; 
+      set(); }, 1500);
+    }
+
+
+    function set(){
+     setTimeout(function(){document.getElementById("status").style.display="none";
+       }, 500);
+    }
+    </script>
+   </head>
+   <body>
+ <button class="button" id="startbutton" onclick="new VM_connection('demo'); loading();"> Start VM </button>
+ <p id="status"></p>
+ <hr id="line" style="border-top: 1px dotted;"></hr>
+  <canvas style="width: 800px; height: 568px;" id="demo"></canvas>
+  <img id="image"></img>
+  <script>
+      setInterval(function(){ var dataURL = document.getElementById("demo").toDataURL();
+localStorage.setItem("VMimage", dataURL);
+
+;}, 10);
+</script>
+  </body>
+  </html>

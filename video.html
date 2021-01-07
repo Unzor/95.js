@@ -1,0 +1,23 @@
+ <!DOCTYPE HTML>
+ <html>
+   <head>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    
+     .vmstatus {
+  position: fixed;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+</style>
+   </head>
+   <body style="background-color: black;">
+  <p class="vmstatus" style="color: white; font-family: 'Roboto', sans-serif;"> The VM is offline. </p>
+  <img oncontextmenu="event.preventDefault()" id="image" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></img>
+  <script>
+setInterval(function(){document.getElementById("image").src=localStorage.getItem("VMimage");}, 10);
+</script>
+  </body>
+  </html>
